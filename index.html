@@ -3,31 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display PUT Request</title>
+    <title>Full ATO in Cornelsen by ynoof</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 40px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-color: #f4f4f4;
-            color: #333;
         }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #d9534f;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
         pre {
             background-color: #f0f0f0;
             border: 1px solid #ccc;
-            padding: 20px;
+            padding: 15px;
+            text-align: left;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
             border-radius: 5px;
         }
-        h1 {
-            color: #d9534f;
+
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .steps {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .steps h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .steps ol {
+            font-size: 16px;
+            margin-left: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Generated PUT Request</h1>
-    <pre id="http-request">
-        <!-- The PUT request will be displayed here -->
-    </pre>
+    <div class="container">
+        <h1>Full Account Takeover in www.cornelsen.de by ynoof</h1>
+
+        <div class="steps">
+            <h2>Steps to reproduce:</h2>
+            <ol>
+                <li>Copy the PUT request below by clicking the "Copy" button.</li>
+                <li>Send it via any proxy tool such as Burp Suite.</li>
+                <li>The victim's email will be changed, achieving full account takeover (ATO).</li>
+            </ol>
+        </div>
+
+        <pre id="http-request">
+            <!-- The PUT request will be displayed here -->
+        </pre>
+
+        <button class="copy-btn" onclick="copyRequest()">Copy to Clipboard</button>
+    </div>
 
     <script>
         // Function to get URL parameters
@@ -74,6 +145,18 @@ Priority: u=1, i
             document.getElementById('http-request').textContent = putRequest;
         } else {
             document.getElementById('http-request').textContent = 'Missing userId or token in the URL parameters.';
+        }
+
+        // Function to copy the PUT request to clipboard
+        function copyRequest() {
+            const requestText = document.getElementById('http-request').textContent;
+            const textarea = document.createElement('textarea');
+            textarea.value = requestText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('PUT request copied to clipboard!');
         }
     </script>
 
