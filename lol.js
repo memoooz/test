@@ -32,7 +32,7 @@ async function getCode(){
       }
       sleep(3000).then(() => {
           httpRequest('https://www.xsnapfish.com/','GET',(e)=>{xhr2.open('POST', URL2, true);xhr2.setRequestHeader('Content-type', 'application/json');xhr2.setRequestHeader('X-Requested-With', 'XMLHttpRequest');xhr2.send(JSON.stringify({"code":`${e.responseText}`,"email":`refotest114+${rand2}@gmail.com`}))}); 
-          params = `email=refotest114%252b${rand2}%2540gmail.com`
+          var params = `email=refotest114%252b${rand2}%2540gmail.com`
           sleep(2000).then(() => {xhr3.open('POST', url3, true);
           xhr3.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
           xhr3.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
