@@ -2,8 +2,8 @@ let rand2 = Math.floor((Math.random() * 1000) + 1);
 var xhr1 = new XMLHttpRequest();
 var xhr2 = new XMLHttpRequest();
 var xhr3 = new XMLHttpRequest();
-URL1 = 'https://app.sproutsocial.com/identity/api/users/me/emailverification/initiate/'
-url3 = 'https://app.sproutsocial.com/api/me/email/update/'
+var URL1 = 'https://app.sproutsocial.com/identity/api/users/me/emailverification/initiate/'
+var url3 = 'https://app.sproutsocial.com/api/me/email/update/'
 
 
 xhr1.open( "POST", URL1, false ); // false for synchronous request
